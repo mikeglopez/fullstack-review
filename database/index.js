@@ -4,6 +4,7 @@ mongoose.connect('mongodb://localhost/fetcher', { useMongoClient: true });
 let repoSchema = mongoose.Schema({
   id: {type: Number, unique: true},
   name: String,
+  username: String,
   url: String,
   stargazers_count: Number,
   watchers_count: Number,
@@ -27,7 +28,11 @@ let save = (repoList) => {
           console.error(err)
         })
     }
-    console.log('repo.find', Repo.find());
+}
+
+let read = () => {
+  return Repo.find().sort({stargazers_count: 'descending'});
 }
 
 module.exports.save = save;
+module.exports.read = read;
