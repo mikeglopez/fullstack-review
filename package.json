@@ -1,11 +1,16 @@
 {
   "name": "github-fetcher-fullstack-v2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Fetches data from GitHub's API and stores it in a database",
+
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeglopez/rpt12-fullstack-review.git"
   },
   "author": "Beth Johnson",
   "license": "ISC",
@@ -17,10 +22,10 @@
     "webpack": "^2.2.1"
   },
   "dependencies": {
-    "body-parser": "^1.17.0",
+    "body-parser": "^1.18.3",
     "express": "^4.15.0",
     "jquery": "^3.1.1",
-    "mongoose": "^4.9.6",
+    "mongoose": "^4.13.18",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "request": "^2.81.0"
