@@ -10,7 +10,7 @@ const RepoList = (props) => (
     <br></br>
     <ul>
     {props.repos.map((repo, i) => {
-      return (<li key={i}>{repo}</li>);
+      return (<li key={i}>⭐️: {repo.stargazers_count} {repo.name} by <a href={'https://github.com/' + repo.username}>{repo.username}</a></li>);
     })}
     </ul>
   </div>
