@@ -10,8 +10,22 @@ class App extends React.Component {
     this.state = {
       repos: []
     }
-
+    this.search = this.search.bind(this);
   }
+
+  componentDidMount () {
+    $.ajax({
+      method: 'GET',
+      url: '/repos',
+      dataType: 'json',
+      success: (data) => {
+        this.setState({repos: data});
+      },
+      error: (err) => {
+        console.log('error:', err);
+      }
+    });
+  };
 
   search (term) {
     console.log(`${term} was searched`);
@@ -29,7 +43,7 @@ class App extends React.Component {
     return (<div>
       <h1>Github Fetcher</h1>
       <RepoList repos={this.state.repos}/>
-      <Search onSearch={this.search.bind(this)}/>
+      <Search onSearch={this.search}/>
     </div>)
   }
 }

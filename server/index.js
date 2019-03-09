@@ -48,9 +48,9 @@ app.get('/repos', function (req, res) {
       console.log(err)
     } else {
       for (var repo = 0; (repo < repos.length) && (repo < 25); repo++) {
-        top25.push(`stars: ${repos[repo].stargazers_count}, ${repos[repo].name} by ${repos[repo].username}`);
+        top25.push(`⭐️: ${repos[repo].stargazers_count} ${repos[repo].name} by ${repos[repo].username}`);
       }
-      console.log(top25);
+      res.status(200).send(top25);
     }
   });
 });
