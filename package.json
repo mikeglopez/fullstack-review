@@ -2,7 +2,6 @@
   "name": "github-fetcher-fullstack-v2",
   "version": "1.0.0",
   "description": "Fetches data from GitHub's API and stores it in a database",
-
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
@@ -28,6 +27,7 @@
     "mongoose": "^4.13.18",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.7"
   }
 }

@@ -1,7 +1,7 @@
-const request = require('request');
+const request = require('request-promise-native');
 const config = require('../config.js');
 
-let getReposByUsername = (user, callback) => {
+let getReposByUsername = (user) => {
   let options = {
     url: `https://api.github.com/users/${user}/repos`,
     headers: {
@@ -10,7 +10,7 @@ let getReposByUsername = (user, callback) => {
     }
   };
 
-  request(options, callback);
+  return request(options);
 }
 
 module.exports.getReposByUsername = getReposByUsername;

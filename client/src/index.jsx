@@ -8,18 +8,27 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      repos: []
+      repos: [],
+      toggleChange: false
     }
     this.search = this.search.bind(this);
+    this.display = this.display.bind(this);
   }
 
   componentDidMount () {
+    this.display();
+  }
+
+  display () {
     $.ajax({
       method: 'GET',
       url: '/repos',
       dataType: 'json',
       success: (data) => {
-        this.setState({repos: data});
+        this.setState({
+          repos: data,
+          toggleChange: !this.state.toggleChange
+        });
       },
       error: (err) => {
         console.log('error:', err);
@@ -34,7 +43,8 @@ class App extends React.Component {
       url: '/repos',
       data: { username: term },
       success: (data) => {
-        console.log('Got repos list:', data);
+        console.log(data);
+        this.display()
       }
     });
   }
