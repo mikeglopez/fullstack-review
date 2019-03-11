@@ -1,12 +1,13 @@
+require('dotenv').config();
 const request = require('request-promise-native');
-const config = require('../config.js');
+var token = process.env.API_TOKEN;
 
 let getReposByUsername = (user) => {
   let options = {
     url: `https://api.github.com/users/${user}/repos`,
     headers: {
       'User-Agent': 'request',
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `token ${token}`
     }
   };
 
